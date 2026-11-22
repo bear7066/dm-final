@@ -292,9 +292,6 @@
       #v(3pt)
       #set text(size: 11pt)
       Dense intervals of {b, c} must lie inside those of {b} and of {c}, so the gap between 13 and 15 is never scanned.
-      #v(2pt)
-      - A superset is never denser than its subsets, so Apriori pruning holds
-      - Stride-skip jumps over positions that are certainly dense
     ])
   #v(1fr)
 ]
@@ -381,12 +378,11 @@
       }))
   })
 }
-#let q-col(n, key, fig, expect, metric) = stack(dir: ttb, spacing: 10pt,
+#let q-col(n, key, fig, expect) = stack(dir: ttb, spacing: 10pt,
   line(length: 100%, stroke: 1.2pt + theme.accent),
   [#text(size: 24pt, weight: "bold", fill: theme.accent)[Q#n] #h(6pt) #heading2[#key]],
   fig,
-  [*Expect:* #expect],
-  [*Measure:* #metric])
+  [*Expect:* #expect])
 
 #survey-slide([#section-mark("analysis")Expected Results], size: 13pt)[
   #v(2pt)
@@ -394,11 +390,9 @@
   #v(1fr)
   #grid(columns: (1fr, 1fr), column-gutter: 36pt,
     q-col(1, [Hidden], q1-figure,
-      [many itemsets found by M2 are missing from M0, mostly seasonal gift bundles. M3 may recover some, but with no interval.],
-      [hidden ratio = share of M2 itemsets that M0 does not return.]),
+      [many itemsets found by M2 are missing from M0, mostly seasonal gift bundles. M3 may recover some, but with no interval.]),
     q-col(2, [When], q2-figure,
-      [M2 intervals sit in the weeks before an event. M1 and M4 can only answer "November" or "December".],
-      [share of dense intervals inside an event's lead-up; share that cross a month boundary.]))
+      [M2 intervals sit in the weeks before an event. M1 and M4 can only answer "November" or "December".]))
   #v(1fr)
 ]
 
