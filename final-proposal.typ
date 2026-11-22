@@ -52,7 +52,10 @@
 #title-slide(
   eyebrow: [Data Mining #sym.dot.c Final project proposal],
   title: [Topic:\ mining locally dense itemsets\ in retail transactions],
-  details: [2026-11-24],
+  details: [2026-11-24
+    #v(0.5em)
+    #link("https://github.com/bear7066/dm-final/tree/main",
+      text(size: 11pt, fill: theme.primary, underline[Repo: github.com/bear7066/dm-final]))],
 )
 
 /*
