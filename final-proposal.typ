@@ -342,6 +342,33 @@
   #v(1fr)
 ]
 
+// ───────────────────────── How the method answers each question ─────────────────────────
+
+#survey-slide([How the method answers each question], subtitle: [Every analysis reads one output of the method], size: 13pt)[
+  #v(1fr)
+  #align(center, table(
+    columns: (auto, 1.25fr, 1.6fr, 1.45fr),
+    inset: (x: 8pt, y: 6pt), align: (left, left, left, left),
+    stroke: (x, _) => (left: if x > 0 { thin }),
+    table.hline(stroke: hl),
+    table.header([], [*Method output used*], [*Measurement*], [*Reading*]),
+    table.hline(stroke: hl),
+    [*Q1* Hidden], [Dense patterns of M2 against frequent itemsets of M0], [Hidden ratio: share of dense patterns that M0 does not return], [High ratio means global mining loses real structure],
+    table.hline(stroke: thin),
+    [*Q2* When], [Dense intervals of each pattern against the event windows], [$R_"event"$: share of dense days that fall in an event window, compared with the share of all days that do], [Above the base rate means the pattern is tied to the event],
+    table.hline(stroke: thin),
+    [*Q2* Return], [Dense intervals of the same pattern in year 1 and year 2], [Share of event-tied patterns that are dense before the same event in both years], [Recurring patterns are usable for next year's plan],
+    table.hline(stroke: thin),
+    [*Q3* Scale], [M2 output at $W$ = 7, 30, 90 days], [Pattern count, intervals per pattern, mean interval length, share of intervals touching at most one event], [Shows which $W$ fits which planning decision],
+    table.hline(stroke: thin),
+    [*Check*], [Dense intervals of M2 against the monthly results of M1], [Share of dense intervals that cross a month boundary], [Cost of fixing the time partition in advance],
+    table.hline(stroke: hl),
+  ))
+  #v(10pt)
+  #note[$R_"event"$ follows the overlap ratio $R_"promo"$ of the paper, with calendar events in place of promotion campaigns.]
+  #v(1fr)
+]
+
 // ───────────────────────── Methodology and analysis ─────────────────────────
 
 // Q1 figure: itemsets found by M0 vs M2; the M2-only part is the hidden set.
